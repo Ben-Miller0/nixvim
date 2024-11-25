@@ -121,7 +121,6 @@ in
           }
         ];
       };
-  friendly-snippets.enable = true;
     luasnip.enable = true;
 
     lspkind = {
