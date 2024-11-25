@@ -23,7 +23,6 @@ in
       { name = "path"; }
       { name = "buffer"; }
     ];
-  };
   settings = {
         mapping = {
           "<C-d>" = # Lua
@@ -121,4 +120,5 @@ in
           }
         ];
       };
-  }
+  };
+}
