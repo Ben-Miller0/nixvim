@@ -15,6 +15,10 @@ let
   '';
 in
 {
+  plugins.cmp-nvim-lsp.enable = true;
+  plugins.cmp-path.enable = true;
+  plugins.cmp-buffer.enable = true;
+  plugins.cmp_luasnip.enable = true;
   plugins.cmp = {
     enable = true;
     autoEnableSources = true;
@@ -47,9 +51,6 @@ in
           "<CR>" = # Lua
             "cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })";
         };
-        preselect = # Lua
-          "cmp.PreselectMode.None";
-
         snippet.expand = # Lua
           "function(args) require('luasnip').lsp_expand(args.body) end";
 
