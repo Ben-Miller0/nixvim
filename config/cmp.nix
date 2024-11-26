@@ -20,6 +20,10 @@ in
     autoEnableSources = true;
   settings = {
         mapping = {
+          "<C-h>" = # Lua
+            "cmp.mapping(function() if luasnip.locally_jumpable(-1) then luasnip.jump(-1) end)";
+          "<C-l>" = # Lua
+            "cmp.mapping(function() if luasnip.expand_or_locally_jumpable() then luasnip.expand_or_jump() end)";
           "<C-d>" = # Lua
             "cmp.mapping.scroll_docs(-4)";
           "<C-f>" = # Lua
