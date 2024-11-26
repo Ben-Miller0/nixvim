@@ -21,9 +21,17 @@ in
   settings = {
         mapping = {
           "<C-h>" = # Lua
-            "cmp.mapping(function() if luasnip.locally_jumpable(-1) then luasnip.jump(-1) end)";
+            ''cmp.mapping(function()
+                if luasnip.locally_jumpable(-1) then
+                  luasnip.jump(-1)
+                end
+              end, { "i", "s" })'';
           "<C-l>" = # Lua
-            "cmp.mapping(function() if luasnip.expand_or_locally_jumpable() then luasnip.expand_or_jump() end)";
+            ''cmp.mapping(function()
+                if luasnip.expand_or_locally_jumpable() then
+                  luasnip.expand_or_jump()
+                end
+              end, { "i", "s" })'';
           "<C-d>" = # Lua
             "cmp.mapping.scroll_docs(-4)";
           "<C-f>" = # Lua
