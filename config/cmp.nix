@@ -19,7 +19,6 @@ in
   plugins.cmp-path.enable = true;
   plugins.cmp-buffer.enable = true;
   plugins.cmp_luasnip.enable = true;
-  plugins.luasnip.enable = true;
   plugins.cmp = {
     enable = true;
     autoEnableSources = true;
@@ -27,12 +26,14 @@ in
         mapping = {
           "<C-h>" = # Lua
             ''cmp.mapping(function()
+                local luasnip = require('luasnip')
                 if luasnip.locally_jumpable(-1) then
                   luasnip.jump(-1)
                 end
               end, { "i", "s" })'';
           "<C-l>" = # Lua
             ''cmp.mapping(function()
+                local luasnip = require('luasnip')
                 if luasnip.expand_or_locally_jumpable() then
                   luasnip.expand_or_jump()
                 end
@@ -56,77 +57,10 @@ in
           "function(args) require('luasnip').lsp_expand(args.body) end";
 
         sources = [
-          {
-            name = "nvim_lsp";
-            priority = 1000;
-            option = {
-              inherit get_bufnrs;
-            };
-          }
-          {
-            name = "nvim_lsp_signature_help";
-            priority = 1000;
-            option = {
-              inherit get_bufnrs;
-            };
-          }
-          {
-            name = "nvim_lsp_document_symbol";
-            priority = 1000;
-            option = {
-              inherit get_bufnrs;
-            };
-          }
-          {
-            name = "treesitter";
-            priority = 850;
-            option = {
-              inherit get_bufnrs;
-            };
-          }
-          {
-            name = "luasnip";
-            priority = 750;
-          }
-          {
-            name = "buffer";
-            priority = 500;
-            option = {
-              inherit get_bufnrs;
-            };
-          }
-          {
-            name = "rg";
-            priority = 300;
-          }
-          {
-            name = "path";
-            priority = 300;
-          }
-          {
-            name = "cmdline";
-            priority = 300;
-          }
-          {
-            name = "spell";
-            priority = 300;
-          }
-          {
-            name = "git";
-            priority = 250;
-          }
-          {
-            name = "zsh";
-            priority = 250;
-          }
-          {
-            name = "calc";
-            priority = 150;
-          }
-          {
-            name = "emoji";
-            priority = 100;
-          }
+          {name = "nvim_lsp";}
+          {name = "path";}
+          {name = "buffer";}
+          {name = "luasnip";}
         ];
       };
   };
