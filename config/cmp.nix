@@ -19,6 +19,7 @@ in
   plugins.cmp-path.enable = true;
   plugins.cmp-buffer.enable = true;
   plugins.cmp_luasnip.enable = true;
+  plugins.luasnip.enable = true;
   plugins.cmp = {
     enable = true;
     autoEnableSources = true;
