@@ -25,6 +25,7 @@
           enable = true;
           installCargo = false;
           installRustc = false;
+          cmd = ["cargo" "clippy"];
         };
         zls = {
           enable = true;
